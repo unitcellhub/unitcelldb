@@ -1,7 +1,7 @@
 # UnitcellDB
 **UnitcellDB** is a submodule of the lattice design tool **UnitcellHub**. 
 It contains a database of simulated meso-scale lattice properties (including geometric and structural/thermal performance) for more than 13,000 point designs.
-All properties were generated using **UnitcellHub**'s **UnitcellEngine**: for more details regrading geometry definitions, simulation details, etc., see [http://github.jpl.nasa.gov/watkinrt/unitcellengine](http://github.jpl.nasa.gov/watkinrt/unitcellengine).
+All properties were generated using **UnitcellHub**'s **UnitcellEngine**: for more details regrading geometry definitions, simulation details, etc., see [http://github.com/unitcellhub/unitcellengine](http://github.com/unitcellhub/unitcellengine).
 The **UnitcellDB** database is stored in the open source [HDF5](https://www.hdfgroup.org/solutions/hdf5/) database format within the file *unitcelldb.h5*.
 The quickest way to get started viewing the database is with [HDFView](https://www.hdfgroup.org/downloads/hdfview/); however, for more detailed interrogation and interaction, an HDF5 tool like Python's [pytable](https://www.pytables.org/) is required (see [the examples folder](http://github.jpl.nasa.gov/watkinrt/unitcelldb/tree/main/examples) for more details). 
 
