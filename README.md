@@ -21,7 +21,7 @@ Each element in the *design* table corresponds to a lattice point design and con
 Unless specified otherwise, the property normalization scheme is as follows:
 - Geometric distances (such as length and width) have arbitrary scaling. To convert to absolute units, all geometric distances must be multiplied by the same scaling factor. For example, if **length**=5 and **width**=2 and we want a unitcell with length 10 mm, then we multiple all normalized geometric parameters by 2x. So, in this case, for a length of 10 mm, the width is 2*2=4 mm.
 - Stiffness-based mechanical properties (elastic and shear modulii) are normalized by the elastic modulus of the base material. For example, if we're interested in aluminum lattices, we can convert the stiffness property **Emin** to absolute units by multiplying it by 68 GPa (the elastic modulus of aluminum). 
-- Conductance-based thermal properties are normalized by the thermal conductance of the base material. For example, if we're interested in aluminum lattices, we can convert the conductance property **Kmin** to absolute units by multiplying it by 152 W/mK (the thermal conductance of Aluminum 6061).
+- Conductance-based thermal properties are normalized by the thermal conductance of the base material. For example, if we're interested in aluminum lattices, we can convert the conductance property **homogenizedConduction** matrix to absolute units by multiplying it by 152 W/mK (the thermal conductance of Aluminum 6061).
 
 
 | **Field** | Category | Dependence | Description |
@@ -58,6 +58,10 @@ Unless specified otherwise, the property normalization scheme is as follows:
 | **numax** | Mechanical | Derived | Maximum possible Poisson's ratio for any possible shear plane and loading direction. |
 | **numaxDirection** | Mechanical | Derived | Length 3 vector specifying the loading direction of maximum Poisson's ratio. |
 | **numaxNormal** | Mechanical | Derived | Length 3 vector specifying the shear plane normal for maximum Poisson's ratio. |
+| **Kmin** | Mechanical | Derived | Minimum possible normalized bulk modulus for any possible load direction. |
+| **KminDirection** | Mechanical | Derived | Length 3 vector specifying the load direction of minimum bulk modulus. |
+| **Kmax** | Mechanical | Derived | Maximum possible normalized bulk modulus for any possible load direction. |
+| **KmaxDirection** | Mechanical | Derived | Length 3 vector specifying the load direction of maximum bulk modulus. |
 | **vonMisesWorst11** | Mechanical | Derived | Worst case von Mises stress within the lattice when subjected to a uniaxial unit macroscopic stress $\sigma$<sub>xx</sub>. |
 | **vonMisesWorst22** | Mechanical | Derived | Worst case von Mises stress within the lattice when subjected to a uniaxial unit macroscopic stress $\sigma$<sub>yy</sub>. |
 | **vonMisesWorst33** | Mechanical | Derived | Worst case von Mises stress within the lattice when subjected to a uniaxial unit macroscopic stress $\sigma$<sub>zz</sub>. |
@@ -66,9 +70,5 @@ Unless specified otherwise, the property normalization scheme is as follows:
 | **vonMisesWorst33** | Mechanical | Derived | Worst case von Mises stress within the lattice when subjected to a shear unit macroscopic stress $\sigma$<sub>xz</sub>. |
 | **vonMisesWorst** | Mechanical | Derived | Worst case local von Mises stress when loaded by a unit macroscopic stress state applied in the worst case possible direction. This is effectually the worst case stress amplification within the lattice structure. |
 | **vonMisesWorstDir** | Mechanical | Derived | Length 6 unit vector specifying macroscopic stress state that results in the worst case von Mises stress local to the unit cell. |
-| **anisotropyIndex** | Mechanical | Derived | Anisotropy index based on <> definition. |
+| **anisotropyIndex** | Mechanical | Derived | Anisotropy index based on the definition in ["Visualising elastic anisotropy: theoretical background and computational implementation" by Nordmann et al., 2018](https://doi.org/10.1007/s00161-018-0635-9). |
 | **homogenizedConduction** | Thermal | Derived | A 3x3 table corresponding to the normalized conduction matrix.  |
-| **Kmin** | Thermal | Derived | Minimum possible normalized thermal conductivity for any possible conduction direction. |
-| **KminDirection** | Thermal | Derived | Length 3 vector specifying the direction of minimum conductance. |
-| **Kmax** | Thermal | Derived | Maximum possible normalized thermal conductivity for any possible conduction direction. |
-| **KmaxDirection** | Thermal | Derived | Length 3 vector specifying the direction of maximum conduction. |
